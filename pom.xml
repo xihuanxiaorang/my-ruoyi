@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>top.xiaorang</groupId>
+    <artifactId>my-ruoyi</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>ruoyi-common</module>
+        <module>ruoyi-system</module>
+        <module>ruoyi-framework</module>
+        <module>ruoyi-admin</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <properties>
+        <myruoyi.version>1.0-SNAPSHOT</myruoyi.version>
+        <druid.version>1.2.4</druid.version>
+        <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
+        <fastjson.version>1.2.79</fastjson.version>
+        <jwt.version>0.9.1</jwt.version>
+        <kaptcha.version>2.3.2</kaptcha.version>
+        <pagehelper.version>1.4.1</pagehelper.version>
+        <commons-pool2.version>2.10.0</commons-pool2.version>
+    </properties>
+
+    <!--    声明依赖，但是还未真正的映入-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <!-- 从Spring Boot导入依赖管理 -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.6.1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--阿里数据库连接池 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <!-- mybatis-plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <!-- 阿里JSON解析器 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <!-- token生成与解析 -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jwt.version}</version>
+            </dependency>
+
+            <!-- 验证码 -->
+            <dependency>
+                <groupId>com.github.penggle</groupId>
+                <artifactId>kaptcha</artifactId>
+                <version>${kaptcha.version}</version>
+            </dependency>
+
+            <!-- pageHelper 分页插件 -->
+<!--            <dependency>-->
+<!--                <groupId>com.github.pagehelper</groupId>-->
+<!--                <artifactId>pagehelper-spring-boot-starter</artifactId>-->
+<!--                <version>${pagehelper.version}</version>-->
+<!--&lt;!&ndash;                <exclusions>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <exclusion>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <groupId>org.mybatis</groupId>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <artifactId>mybatis-spring</artifactId>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </exclusion>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <exclusion>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <groupId>org.mybatis</groupId>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <artifactId>mybatis</artifactId>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </exclusion>&ndash;&gt;-->
+<!--&lt;!&ndash;                </exclusions>&ndash;&gt;-->
+<!--            </dependency>-->
+
+            <!-- 对象池 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${commons-pool2.version}</version>
+            </dependency>
+
+            <!-- 公共模块 -->
+            <dependency>
+                <groupId>top.xiaorang</groupId>
+                <artifactId>ruoyi-common</artifactId>
+                <version>${myruoyi.version}</version>
+            </dependency>
+
+            <!-- 系统模块 -->
+            <dependency>
+                <groupId>top.xiaorang</groupId>
+                <artifactId>ruoyi-system</artifactId>
+                <version>${myruoyi.version}</version>
+            </dependency>
+
+            <!-- 框架模块 -->
+            <dependency>
+                <groupId>top.xiaorang</groupId>
+                <artifactId>ruoyi-framework</artifactId>
+                <version>${myruoyi.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.6.1</version>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+</project>
