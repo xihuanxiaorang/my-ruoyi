@@ -9,15 +9,4 @@ import top.xiaorang.ruoyi.system.service.SysUserService;
 
 @Service("sysUserService")
 public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements SysUserService {
-    private final SysUserMapper sysUserMapper;
-
-    public SysUserServiceImpl(SysUserMapper sysUserMapper) {
-        this.sysUserMapper = sysUserMapper;
-    }
-
-
-    @Override
-    public SysUser getUserById(Long userId) {
-        return sysUserMapper.selectUserById(userId);
-    }
 }

@@ -6,12 +6,10 @@ import org.apache.ibatis.annotations.Mapper;
 
 /**
  * 用户信息表
- * 
+ *
  * @author xiaorang
  * @email 15019474951@163.com
  * @date 2021-12-23 11:59:44
  */
 @Mapper
-public interface SysUserMapper extends BaseMapper<SysUser> {
-    SysUser selectUserById(Long userId);
-}
+public interface SysUserMapper extends BaseMapper<SysUser> {}
