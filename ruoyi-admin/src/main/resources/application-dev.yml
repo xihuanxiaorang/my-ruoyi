@@ -50,7 +50,7 @@ spring:
             multi-statement-allow: true
 mybatis-plus:
   type-aliases-package: top.xiaorang.ruoyi.**.entity
-  mapper-locations: classpath*:mapper/*Mapper.xml
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 指定 MyBatis 所用日志的具体实现
   global-config:
