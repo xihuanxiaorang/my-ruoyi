@@ -1,6 +1,10 @@
 server:
   port: 9527
 spring:
+  # 资源信息
+  messages:
+    # 国际化资源文件路径
+    basename: static/i18n/messages
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
