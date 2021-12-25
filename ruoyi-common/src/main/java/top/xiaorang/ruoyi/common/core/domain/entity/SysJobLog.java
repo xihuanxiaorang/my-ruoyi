@@ -1,11 +1,13 @@
 package top.xiaorang.ruoyi.common.core.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
-import lombok.Data;
 
 /**
  * 定时任务调度日志表
@@ -50,6 +52,7 @@ public class SysJobLog implements Serializable {
 	/**
 	 * 创建时间
 	 */
+	@TableField(fill = FieldFill.INSERT)
 	private Date createTime;
 
 }

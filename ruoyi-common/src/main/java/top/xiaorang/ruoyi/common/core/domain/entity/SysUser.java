@@ -1,11 +1,13 @@
 package top.xiaorang.ruoyi.common.core.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
-import lombok.Data;
 
 /**
  * 用户信息表
@@ -64,7 +66,7 @@ public class SysUser implements Serializable {
 	 */
 	private String status;
 	/**
-	 * 删除标志（0代表存在 2代表删除）
+	 * 删除标志（0代表存在 1代表删除）
 	 */
 	private String delFlag;
 	/**
@@ -82,6 +84,7 @@ public class SysUser implements Serializable {
 	/**
 	 * 创建时间
 	 */
+	@TableField(fill = FieldFill.INSERT)
 	private Date createTime;
 	/**
 	 * 更新者
@@ -90,6 +93,7 @@ public class SysUser implements Serializable {
 	/**
 	 * 更新时间
 	 */
+	@TableField(fill = FieldFill.INSERT_UPDATE)
 	private Date updateTime;
 	/**
 	 * 备注
