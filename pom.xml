@@ -17,13 +17,14 @@
 
     <properties>
         <myruoyi.version>1.0-SNAPSHOT</myruoyi.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
         <druid.version>1.2.4</druid.version>
         <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
-        <fastjson.version>1.2.79</fastjson.version>
+        <fastjson.version>1.2.75</fastjson.version>
         <jwt.version>0.9.1</jwt.version>
         <kaptcha.version>2.3.2</kaptcha.version>
         <pagehelper.version>1.4.1</pagehelper.version>
-        <commons-pool2.version>2.4.2</commons-pool2.version>
     </properties>
 
     <!--    声明依赖，但是还未真正的映入-->
@@ -73,14 +74,6 @@
                 <version>${kaptcha.version}</version>
             </dependency>
 
-
-            <!-- 对象池 -->
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-pool2</artifactId>
-                <version>${commons-pool2.version}</version>
-            </dependency>
-
             <!-- pageHelper 分页插件-->
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
@@ -123,13 +116,15 @@
 
     <build>
         <plugins>
+            <!-- maven 编译插件必须要有且需要指定编译版本为1.8，否则项目的启动的时候会报错 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <encoding>UTF-8</encoding>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
         </plugins>
@@ -148,7 +143,7 @@
         <repository>
             <id>public</id>
             <name>aliyun nexus</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <url>https://maven.aliyun.com/repository/public</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -159,7 +154,7 @@
         <pluginRepository>
             <id>public</id>
             <name>aliyun nexus</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <url>https://maven.aliyun.com/repository/public</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
